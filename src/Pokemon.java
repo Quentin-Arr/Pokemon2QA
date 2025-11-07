@@ -1,16 +1,19 @@
 import java.util.Random;
 
-public class Pokemon {
+public abstract class Pokemon {
 	private String nom;
 	private static java.util.Random random = new Random();
 	private int niveau =  random.nextInt(1, 11);
-	private int hp;
+	protected int hp;
 	private int atk;
+	private static int niveauMax=10; 
+	private TypePokemon type;
 	
-	public Pokemon (String nom) {
+	public Pokemon (String nom, TypePokemon type) {
 		this.nom=nom;
 		this.hp= niveau*2;
 		this.atk=(niveau/2)+1;
+		this.type=type;
 	}
 	
 	public String getNom() {
@@ -29,6 +32,10 @@ public class Pokemon {
 		return niveau;
 	}
 	
+	public TypePokemon getType() {
+		return type;
+	}
+	
 	public boolean isKO() {
 		if (this.hp<=0) {
 			return true;
@@ -43,10 +50,8 @@ public class Pokemon {
 		System.out.println("[Pokemon "+this.nom+"] : Je me soigne"); 
 	}
 	
-	public void attaquer(Pokemon p) {
-		p.hp=p.hp-this.atk;
-		System.out.println("[Pokemon "+this.nom+"] : J'attaque "+p.nom);
-	}
+	public abstract void attaquer(Pokemon p);
+	public abstract void subir(Pokemon p);
 	
 	public String toString() {
 		return("Je m'appelle "+this.nom+ ""
