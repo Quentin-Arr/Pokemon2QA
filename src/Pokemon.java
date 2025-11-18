@@ -54,10 +54,18 @@ public abstract class Pokemon {
 	public abstract void subir(Pokemon p);
 	
 	public String toString() {
-		return("Je m'appelle "+this.nom+ ""
-				+ " je suis de niveau "+this.niveau+""
-						+ " j'ai "+this.hp+" points de vie "
-								+ "mon attaque de base est  de "+this.atk);		
+		if(this.isKO()==false) {
+			return("Je m'appelle "+this.nom+ ""
+					+ " je suis de niveau "+this.niveau+""
+							+ " j'ai "+this.hp+" points de vie "
+									+ "mon attaque de base est  de "+this.atk);	
+		}
+		else {
+			return ("Je m'appelle "+this.nom+ ""
+					+ " je suis de niveau "+this.niveau+""
+							+ " je suis KO "
+									+ "mon attaque de base est  de "+this.atk);	
+		}
 	}
 	
 	public void log(String msg) {

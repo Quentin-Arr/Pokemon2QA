@@ -7,8 +7,13 @@ public class PokemonEau extends Pokemon{
 
 	@Override
 	public void attaquer(Pokemon p) {
-		p.subir(this);
-		this.log("J'attaque "+p.getNom());
+		if (this.isKO()==false) {
+			this.log("J'attaque "+p.getNom());
+			p.subir(this);
+		}
+		else {
+			this.log("Je ne peux pas attaquer je suis KO");
+		}
 	}
 
 	@Override
