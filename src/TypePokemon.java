@@ -2,7 +2,7 @@
 public enum TypePokemon {
 	EAU("eau"),
 	FEU("feu"),
-	PLANTE("plante");
+	PLANTE("plante"),;
 	
 	private String nom;
 	
